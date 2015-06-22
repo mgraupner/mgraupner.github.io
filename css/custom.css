@@ -1,0 +1,8 @@
+h1 {
+  font-family: 'futura-pt', 'Open Sans','Helvetica Neue',Arial,sans-serif;
+}
+
+header .header-content .header-content-inner h1 {
+  text-transform: none;
+  font-weight: 500;
+}
