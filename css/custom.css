@@ -42,3 +42,14 @@ header .header-content .header-content-inner p {
   margin-right: 10px;
   margin-bottom: 5px;
 }
+
+#footer .copyright {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding-bottom: 1em;
+  padding-top: 1em;
+  color: #A3B4BA;
+  display: block;
+  font-size: 13px;
+  margin-top: 1em;
+}
