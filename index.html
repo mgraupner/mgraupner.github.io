@@ -8,7 +8,7 @@
   <meta name="description" content="Michael Graupner - Ihr Freelance Software Entwickler in Regensburg/Bayern. Kontaktieren Sie mich für Ihre Web- oder App-Projekte.">
   <meta name="author" content="">
 
-  <title>Michael Graupner | Freelance Entwickler</title>
+  <title>Michael Graupner | Freelance Software Entwickler</title>
 
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -39,6 +39,10 @@
     ga('create', 'UA-37750852-2', 'auto');
     ga('send', 'pageview');
   </script>
+
+  <!-- Custom Fonts -->
+  <script src="//use.typekit.net/zkv0ugo.js"></script> 
+  <script>try{Typekit.load();}catch(e){}</script>
 </head>
 
 <body id="page-top">
@@ -60,7 +64,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="#about">Über mich</a>
+                        <a class="page-scroll" href="#about">Lösungen</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#services">Services</a>
@@ -84,10 +88,11 @@
             <div class="col-lg-8 col-lg-offset-2">
             <div class="header-content-inner">
                 <h2>Freelance</h2>
-                <h1>Web und App-Entwickler</h1>
+                <!--h1>Web und App-Entwickler</h1-->
+                <h1>Software-Entwickler</h1>
                 <h3>in Regensburg</h3>
                 <hr>
-                <p>Sie benötigen Unterstützung bei der Planung, Projektierung oder Umsetzung Ihrer Web, Mobile und App Projekte? Hier sind Sie richtig. Aufgrund meiner Erfahrung kann ich Ihnen helfen Ihre Vorhaben besser, schneller und stabiler umzusetzen.</p>
+                <p>Sie benötigen Unterstützung bei der Planung, Projektierung oder Umsetzung Ihrer Web, Mobile und App Projekte? Hier sind Sie richtig. Aufgrund meiner mehrjährigen Erfahrung kann ich Ihnen helfen Ihre Vorhaben erfolgreich zu realisieren.</p>
                 <a href="#about" class="btn btn-primary btn-xl page-scroll">Erfahren Sie mehr</a>
             </div>
             </div>
@@ -101,8 +106,8 @@
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">Die passende Lösung für Ihre Anforderungen</h2>
                     <hr class="light">
-                    <p class="text-faded">Aufwand und Kosten sollten im Einklang mit Ihren Anforderungen stehen, ich helfe Ihnen dabei den richtigen Weg zu finden und gebe Ihnen die optimale Beratung bei Ihren IT Projekten.</p>
-                    <a href="#" class="btn btn-default btn-xl">Get Started!</a>
+                    <p class="text-faded">Aufwand und Kosten sollten in Einklang mit Ihren Anforderungen stehen, ich helfe Ihnen dabei den richtigen Weg zu finden und gebe Ihnen die optimale Beratung bei Ihren IT Projekten.</p>
+                    <a href="#services" class="btn btn-default btn-xl page-scroll">Get Started!</a>
                 </div>
             </div>
         </div>
@@ -123,28 +128,28 @@
                     <div class="service-box">
                         <i class="fa fa-4x fa-diamond wow bounceIn text-primary"></i>
                         <h3>Full Stack</h3>
-                        <p class="text-muted">Our templates are updated regularly so they don't break.</p>
+                        <p class="text-muted">Umfassende Lösungen von der Server Platform bis zur Front-/Backendtechnologie.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <i class="fa fa-4x fa-paper-plane wow bounceIn text-primary" data-wow-delay=".1s"></i>
                         <h3>Ready to Ship</h3>
-                        <p class="text-muted">You can use this theme as is, or you can make changes!</p>
+                        <p class="text-muted">Durch den Einsatz moderner Technologien schneller auf dem Markt.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <i class="fa fa-4x fa-newspaper-o wow bounceIn text-primary" data-wow-delay=".2s"></i>
                         <h3>Up to Date</h3>
-                        <p class="text-muted">We update dependencies to keep things fresh.</p>
+                        <p class="text-muted">Die Sicherheit Ihrer IT-Systeme hat bei mir Priorität.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".3s"></i>
                         <h3>Made with Love</h3>
-                        <p class="text-muted">You have to make your websites with love these days!</p>
+                        <p class="text-muted">Ihre Zufriedenheit ist meine Motivation.</p>
                     </div>
                 </div>
             </div>
@@ -295,8 +300,6 @@
                         <table><tr>
                         <td>Telefon:</td>
                         <td>+49 (0) 89/120 895 641</td></tr>
-                        <tr><td>Telefax:</td>
-                        <td>+49 (0) 89/120 895 641</td></tr>
                         <tr><td>E-Mail:</td>
                         <td>contact@graupner.gr</td>
                         </tr></table>
@@ -334,12 +337,19 @@
     <script src="js/creative.js"></script>
 
     <script type="text/javascript">
+      // Change Textsizes
       jQuery(".header-content-inner h1").fitText(1.2);
       jQuery(".header-content-inner h2").fitText(1.8);
-    </script>
 
-    <!-- Custom Fonts -->
-    <script src="//use.typekit.net/zkv0ugo.js"></script>
-    <script>try{Typekit.load();}catch(e){}</script>
+      /*
+      $("footer").on("shown.bs.collapse", function() {
+        var selected = $(this);
+        var collapsed = $(".collapse.in").height();
+        $.scrollTo(selected, 500, {
+            offset: -(collapsed)
+        })
+      });
+      */
+    </script>
 </body>
 </html>
