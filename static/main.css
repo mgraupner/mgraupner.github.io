@@ -1,0 +1,264 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+@media only screen and (max-width:900px) { 
+    body {
+        margin: 1.5em;
+    }
+
+    section p {
+        font-size: 2.5rem;
+    }
+
+    main section#description p {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /*margin: 3em 0 0 6em;*/
+    /*padding: 3em 0 0 6em;*/
+    margin: 0;
+    font-family: neue-haas-grotesk-text, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: #febf3f;
+}
+
+#container {
+    margin: 3em 0 0 6em;
+}
+
+header {
+    padding-top: 3em;
+}
+
+header p {
+    margin-top: 0.5em;
+    font-size: 1.1em;
+    line-height: 1.3em;
+}
+
+@media only screen and (max-width:900px) { 
+    #container {
+        margin: 1.5em 1.5em 0 1.5em;
+    }
+
+    header {
+        padding-top: 1em;
+    }
+}
+
+h1 {
+    /*font-family: neue-haas-grotesk-text, sans-serif;*/
+    font-size: 3em;
+    font-weight: 700;
+    letter-spacing: 0.015em;
+}
+
+main {
+    padding-top: 3em;
+    max-width: 900px;
+/*    padding-bottom: 2rem;
+    margin-bottom: 1rem;*/
+}
+
+main p {
+    /*font-family: freight-display-pro, sans-serif;*/
+    /*font-family: neue-haas-grotesk-text, Helvetica, Arial, sans-serif;*/
+    /*font-family: urw-din-semi-condensed, sans-serif;*/
+    font-size: 3rem;
+    font-weight: 600;
+    padding-bottom: 2rem;
+}
+
+section#intro {
+    color: #ffffff;
+}
+section#intro span.underline {
+    font-size: 3em;
+    line-height: 0.8em;
+}
+@media only screen and (max-width:400px) { 
+    section#intro span.underline {
+        font-size: 1.2em;
+        line-height: 0.8em;
+    }
+}
+@media only screen and (min-width: 350px) and (max-width:900px) { 
+    section#intro span.underline {
+        font-size: 1.5em;
+        line-height: 0.8em;
+    }
+}
+
+section#description p {
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 2.5rem;
+    color: #000;
+}
+
+section#contact {
+    font-weight: 500;
+}
+section#contact h2 {
+    font-size: 2.5em;
+    font-weight: 700;
+}
+section#contact a, footer a {
+    text-decoration: none;
+    color: black;
+    /* First we need to help some browsers along for this to work.
+     Just because a vendor prefix is there, doesn't mean it will
+     work in a browser made by that vendor either, it's just for
+     future-proofing purposes I guess. */
+    -o-transition: 0.4s;
+    -ms-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -webkit-transition: 0.4s;
+    /* ...and now for the proper property */
+    transition: color 0.4s;
+    /*transition-property: color;*/
+    /*transition-timing-function: ease;*/
+    transition-delay: 0s;
+}
+section#contact a:hover , footer a {
+  color: rgba(0, 0, 0, 0.5);
+}
+section#contact ul {
+    margin: 1em 0 1em 0;
+}
+section#contact ul li {
+    font-size: 1.3em;
+    line-height: 1.25em;
+    letter-spacing: 0.005em;
+}
+
+aside#impress {
+    margin-bottom: 2em;
+    max-width: 100rem;
+}
+aside#impress h2, h3 {
+    font-size: 1.3em;
+    font-weight: 700;
+    padding: 0.5em 0 0.5em 0;
+}
+aside#impress p {
+    font-weight: 500;
+    line-height: 1.1em;
+}
+aside#impress div.segment {
+    margin: 1em 0 1em 0;
+}
+
+/* https://stackoverflow.com/questions/643879/css-to-make-html-page-footer-stay-at-bottom-of-the-page-with-a-minimum-height-b */
+footer {
+    margin-top: auto;
+    background-color: #efefef;
+    /* The following fixes a small 1px border on the bottom */
+    line-height: initial;
+    font-weight: 600;
+}
+
+@media only screen and (max-width:900px) { 
+    footer {
+        padding: 0.5em 0 0.5em 1.5em;
+    }
+}
+@media only screen and (min-width:900px) { 
+    footer {
+        padding: 0.5em 0 0.5em 6em;
+    }
+}
+
+#intro {
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+}
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
