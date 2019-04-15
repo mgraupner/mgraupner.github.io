@@ -59,6 +59,7 @@ table {
     main section#description p {
         font-size: 1.5rem;
         line-height: 2rem;
+        letter-spacing: 0.04em;
     }
 }
 
@@ -73,7 +74,7 @@ body {
     /*margin: 3em 0 0 6em;*/
     /*padding: 3em 0 0 6em;*/
     margin: 0;
-    font-family: neue-haas-grotesk-text, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: neue-haas-grotesk-display, "Helvetica Neue", Helvetica, Arial, sans-serif;
     background: #febf3f;
 }
 
@@ -87,8 +88,9 @@ header {
 
 header p {
     margin-top: 0.5em;
-    font-size: 1.1em;
+    font-size: 1.2em;
     line-height: 1.3em;
+    font-weight: 500;
 }
 
 @media only screen and (max-width:900px) { 
@@ -103,9 +105,9 @@ header p {
 
 h1 {
     /*font-family: neue-haas-grotesk-text, sans-serif;*/
-    font-size: 3em;
+    font-size: 3.1em;
     font-weight: 700;
-    letter-spacing: 0.015em;
+    /*letter-spacing: 0.01em;*/
 }
 
 main {
@@ -119,7 +121,7 @@ main p {
     /*font-family: freight-display-pro, sans-serif;*/
     /*font-family: neue-haas-grotesk-text, Helvetica, Arial, sans-serif;*/
     /*font-family: urw-din-semi-condensed, sans-serif;*/
-    font-size: 3rem;
+    font-size: 3.2rem;
     font-weight: 600;
     padding-bottom: 2rem;
 }
@@ -129,7 +131,7 @@ section#intro {
 }
 section#intro span.underline {
     font-size: 3em;
-    line-height: 0.8em;
+    line-height: 0.9em;
 }
 @media only screen and (max-width:400px) { 
     section#intro span.underline {
@@ -146,13 +148,14 @@ section#intro span.underline {
 
 section#description p {
     font-size: 2rem;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 2.5rem;
     color: #000;
+    letter-spacing: 0.025em;
 }
 
 section#contact {
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 2em;
 }
 section#contact h2 {
@@ -200,6 +203,7 @@ aside#impress h2, h3 {
 aside#impress p {
     font-weight: 500;
     line-height: 1.1em;
+    letter-spacing: 0.025em;
 }
 aside#impress div.segment {
     margin: 1em 0 1em 0;
@@ -212,6 +216,10 @@ footer {
     /* The following fixes a small 1px border on the bottom */
     line-height: initial;
     font-weight: 600;
+}
+
+footer p {
+    letter-spacing: 0.025em;
 }
 
 @media only screen and (max-width:900px) { 
