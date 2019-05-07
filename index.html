@@ -6,7 +6,7 @@
 
   <title>Michael Graupner | Graupner Software Engineering</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Michael Graupner, IT Software Engineer in Regensburg.">
+  <meta name="description" content="Michael Graupner, Freelance Software Engineer in Regensburg. Currently available for hire. Cloud Expert, Devops, System Design and Development.">
   <meta name="author" content="Michael Graupner">
 
   <link rel="stylesheet" href="static/main.css?v=1.0">
@@ -17,7 +17,8 @@
 <body>
   <div id="container">
     <header>
-      <h1>Graupner Engineering</h1>
+      <h1>Graupner</h1>
+      <h1>Engineering</h1>
       <p>System Engineering . Software Design . Software Development</p>
     </header>
     <main>
@@ -27,7 +28,7 @@
         <!-- <p>For hire</p> -->
       </section>
       <section id="description">
-        <p>I'm specializing in helping startups and established companies to solve their IT problems and realizing exciting new projects together.</p>
+        <p>I'm specializing in helping startups and established companies to solve their IT problems and realizing exciting new projects.</p>
       </section>
       <section id="contact">
         <h2>Want to work together? Just send me a mail.</h2>
@@ -99,6 +100,25 @@
       var y = document.getElementById("contact");
       y.scrollIntoView( {behavior: "smooth"} );
     }
+
+    function registerESCKey() {
+      document.onkeydown = function(evt) {
+          evt = evt || window.event;
+          var isEscape = false;
+          if ("key" in evt) {
+              isEscape = (evt.key === "Escape" || evt.key === "Esc");
+          } else {
+              isEscape = (evt.keyCode === 27);
+          }
+          if (isEscape) {
+              alert("Escape");
+          }
+      };
+    }
+
+    (function() {
+      registerESCKey();
+    })();
   </script>
 </body>
 </html>
