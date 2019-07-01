@@ -194,6 +194,9 @@ section#contact a, footer a {
 section#contact a:hover , footer a {
   color: rgba(0, 0, 0, 0.5);
 }
+section#contact a {
+    border-bottom: gray 5px dotted;
+}
 section#contact ul {
     margin: 1em 0 1em 0;
 }
