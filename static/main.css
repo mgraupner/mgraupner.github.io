@@ -105,13 +105,16 @@ header p {
 
 h1 {
     /*font-family: neue-haas-grotesk-text, sans-serif;*/
-    font-size: 3em;
+    display: inline-block;
+    width: auto;
+    font-size: 2.2em;
     font-weight: 700;
     text-transform: uppercase;
     /*letter-spacing: 0.01em;*/
 }
 @media only screen and (min-width:767px) {
     h1 {
+        display: block;
         font-size: 7vw;
         line-height: 0.8em;
     }
@@ -180,6 +183,17 @@ section#contact h2 {
     font-size: 2.5em;
     font-weight: 700;
 }
+section#contact .location {
+    margin-top: 1em;
+} 
+section#contact .office {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 1.3em;
+    line-height: 1.3em;
+    margin-right: 0.5em;
+    /*font-weight: 700;*/
+}
 section#contact a, footer a {
     text-decoration: none;
     color: black;
@@ -204,7 +218,8 @@ section#contact a.mail {
     border-bottom: gray 5px dotted;
 }
 section#contact ul {
-    margin: 1em 0 1em 0;
+    /*margin: 0 0 1em 0;*/
+    display: inline-block;
 }
 section#contact ul li {
     font-size: 1.3em;
