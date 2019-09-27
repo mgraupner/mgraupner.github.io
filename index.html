@@ -21,6 +21,31 @@
       <h1>Engineering</h1>
       <p>System Engineering . Software Design . Software Development</p>
     </header>
+    <nav class="mobile">
+      <button class="hamburger hamburger--slider" type="button">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+    </nav>
+    <div class="overlay overlay-hugeinc">
+      <div class="header">
+        <h1>Graupner</h1>
+        <h1>Engineering</h1>
+        <p>System Engineering . Software Design . Software Development</p>
+      </div>
+      <!-- <button type="button" class="overlay-close">Close</button> -->
+      <nav class="overlay-nav">
+        <ul>
+          <li><a href="https://www.graupner.gr">Home</a></li>
+          <!-- <li><a href="#">About</a></li> -->
+          <!-- <li><a href="#">Work</a></li> -->
+          <!-- <li><a href="#">Clients</a></li> -->
+          <!-- <li><a href="#">Contact</a></li> -->
+        </ul>
+      </nav>
+    </div>
+    <!-- <p><button id="trigger-overlay">Overlay anzeigen</button></p> -->
     <main>
       <section id="intro">
         <p>Hi, I'm Michael, a freelance software and system engineer based in Regensburg</p>
@@ -90,13 +115,17 @@
   <script type="text/javascript">
     "use strict";
 
+    // Hamburger object
+    var hamburger = document.querySelector(".hamburger");
+    // Impress as object
+    var impress = document.getElementById("impress");
+
     function reveal(event) {
       event.preventDefault();
-      var x = document.getElementById("impress");
-      if (x.style.display === "none") {
-        x.style.display = "block";
+      if (impress.style.display === "none") {
+        impress.style.display = "block";
       } else {
-        x.style.display = "none";
+        impress.style.display = "none";
       }
 
       var y = document.getElementById("contact");
@@ -113,13 +142,47 @@
               isEscape = (evt.keyCode === 27);
           }
           if (isEscape) {
-              alert("Escape");
+              reveal(evt);
           }
       };
     }
 
+    function toggleHamburger() {
+      // On click
+      hamburger.addEventListener("click", () => {
+        // Toggle class "is-active"
+        hamburger.classList.toggle("is-active");
+        // Do something else, like open/close menu
+        toggleOverlay();
+      });
+    }
+
+    var triggerBttn = document.getElementById( 'trigger-overlay' );
+    var overlay = document.querySelector( 'div.overlay' );
+    var closeBttn = overlay.querySelector( 'button.overlay-close' );
+
+    function toggleOverlay() {
+      if( overlay.classList.contains("open") ) {
+        overlay.classList.remove("open");
+        overlay.classList.add("close");
+        var onEndTransitionFn = function( ev ) {
+          if( ev.propertyName !== 'visibility' ) { return; }
+          this.removeEventListener( "transitionend", onEndTransitionFn );
+          overlay.classList.remove("close");
+        };
+        overlay.addEventListener( "transitionend", onEndTransitionFn );
+      }
+      else if( !overlay.classList.contains("close") ) {
+        overlay.classList.add("open");
+      }
+    }
+
     (function() {
       registerESCKey();
+      toggleHamburger();
+
+      // triggerBttn.addEventListener( 'click', toggleOverlay );
+      // closeBttn.addEventListener( 'click', toggleOverlay );
     })();
   </script>
 </body>

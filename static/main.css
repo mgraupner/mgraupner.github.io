@@ -83,7 +83,10 @@ body {
 }
 
 header {
+    /*max-width: 800px;*/
     padding-top: 1em;
+    display: inline-block;
+    /*float: left;*/
 }
 
 header p {
@@ -100,6 +103,238 @@ header p {
 
     header {
         padding-top: 1em;
+    }
+}
+
+nav.mobile {
+    /*float: left;*/
+    /*display: inline-block;*/
+    /*padding: 1em 0 0 10em;*/
+    /*vertical-align: top;*/
+    position: absolute;
+    top: 27px;
+    right: 15px;
+    z-index: 200;
+}
+
+/*!
+ * Hamburgers
+ * @description Tasty CSS-animated hamburgers
+ * @author Jonathan Suh @jonsuh
+ * @site https://jonsuh.com/hamburgers
+ * @link https://github.com/jonsuh/hamburgers
+ */
+.hamburger {
+  padding: 15px 15px;
+  display: inline-block;
+  cursor: pointer;
+  transition-property: opacity, filter, background-color;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  overflow: visible; }
+  .hamburger:hover {
+    opacity: 0.7; }
+  .hamburger.is-active:hover {
+    opacity: 1; }
+  .hamburger.is-active .hamburger-inner,
+  .hamburger.is-active .hamburger-inner::before,
+  .hamburger.is-active .hamburger-inner::after {
+    background-color: #000; }
+  .hamburger.is-active .hamburger-inner,
+  .hamburger.is-active .hamburger-inner::after {
+    background-color: #FFF;
+  }
+
+.hamburger-box {
+  width: 40px;
+  height: 24px;
+  display: inline-block;
+  position: relative; }
+
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px; }
+  .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+    width: 40px;
+    height: 4px;
+    background-color: #000;
+    border-radius: 4px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease; }
+  .hamburger-inner::before, .hamburger-inner::after {
+    content: "";
+    display: block; }
+  .hamburger-inner::before {
+    top: -10px; }
+  .hamburger-inner::after {
+    bottom: -10px; }
+
+/*
+   * Slider
+   */
+.hamburger--slider .hamburger-inner {
+  top: 2px; }
+  .hamburger--slider .hamburger-inner::before {
+    top: 10px;
+    transition-property: transform, opacity;
+    transition-timing-function: ease;
+    transition-duration: 0.15s; }
+  .hamburger--slider .hamburger-inner::after {
+    top: 20px;}
+
+.hamburger--slider.is-active .hamburger-inner {
+  transform: translate3d(0, 10px, 0) rotate(45deg)}
+  .hamburger--slider.is-active .hamburger-inner::before {
+    transform: rotate(-45deg) translate3d(-5.71429px, -6px, 0);
+    opacity: 0}
+  .hamburger--slider.is-active .hamburger-inner::after {
+    transform: translate3d(0, -20px, 0) rotate(-90deg)}
+
+.hamburger:focus { outline: 0; }
+@media only screen and (min-width:767px) {
+    .hamburger {
+        display: none;
+    }
+}
+
+/* https://tympanus.net/Development/FullscreenOverlayStyles/index.html */
+/* Overlay style */
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    /*background: rgba(153,204,51,0.9);*/
+    background: rgba(0,0,0,0.9);
+    z-index: 10;
+}
+
+/* Overlay closing cross */
+.overlay .overlay-close {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    overflow: hidden;
+    border: none;
+    text-indent: 200%;
+    color: transparent;
+    outline: none;
+    z-index: 100;
+}
+
+.overlay .header {
+    color: #FFF;
+    margin: 40px 24px 0 24px;
+}
+.overlay .header h1 {
+    display: block;
+}
+.overlay .header p {
+    margin-top: 0.5em;
+    font-size: 1.2em;
+    line-height: 1.3em;
+    font-weight: 500;
+}
+
+/* Menu style */
+.overlay nav {
+    text-align: center;
+    position: relative;
+    top: 37%;
+    height: 60%;
+    font-size: 54px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.overlay ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: inline-block;
+    height: 100%;
+    position: relative;
+}
+
+.overlay ul li {
+    display: block;
+    height: 16.7%;
+    height: calc(100% / 6);
+    min-height: 54px;
+}
+
+.overlay ul li a {
+    font-weight: 600;
+    text-decoration: none;
+    display: block;
+    color: #fff;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+.overlay ul li a:hover,
+.overlay ul li a:focus {
+    color: #e3fcb1;
+}
+
+/* Effects */
+.overlay-hugeinc {
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: opacity 0.5s, visibility 0s 0.5s;
+    transition: opacity 0.5s, visibility 0s 0.5s;
+}
+
+.overlay-hugeinc.open {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+}
+
+.overlay-hugeinc nav {
+    -webkit-perspective: 1200px;
+    perspective: 1200px;
+}
+
+.overlay-hugeinc nav ul {
+    opacity: 0.4;
+    -webkit-transform: translateY(-25%) rotateX(35deg);
+    transform: translateY(-25%) rotateX(35deg);
+    -webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.overlay-hugeinc.open nav ul {
+    opacity: 1;
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+}
+
+.overlay-hugeinc.close nav ul {
+    -webkit-transform: translateY(25%) rotateX(-35deg);
+    transform: translateY(25%) rotateX(-35deg);
+}
+
+@media screen and (max-height: 30.5em) {
+    .overlay nav {
+        height: 70%;
+        font-size: 34px;
+    }
+    .overlay ul li {
+        min-height: 34px;
     }
 }
 
@@ -137,8 +372,10 @@ main p {
 }
 
 section#intro {
+    /*position: relative;*/
     color: #ffffff;
     padding-bottom: 2em;
+    /*z-index: 1;*/
 }
 section#intro p {
     padding-bottom: 0;
