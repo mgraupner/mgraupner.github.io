@@ -150,6 +150,7 @@
     function toggleHamburger() {
       // On click
       hamburger.addEventListener("click", () => {
+        if (transitioning === true) { return; }
         // Toggle class "is-active"
         hamburger.classList.toggle("is-active");
         // Do something else, like open/close menu
@@ -161,19 +162,34 @@
     var overlay = document.querySelector( 'div.overlay' );
     var closeBttn = overlay.querySelector( 'button.overlay-close' );
 
+    var transitioning = false;
+
     function toggleOverlay() {
       if( overlay.classList.contains("open") ) {
+        if (transitioning === true) { return; }
+        transitioning = true;
         overlay.classList.remove("open");
         overlay.classList.add("close");
         var onEndTransitionFn = function( ev ) {
           if( ev.propertyName !== 'visibility' ) { return; }
           this.removeEventListener( "transitionend", onEndTransitionFn );
           overlay.classList.remove("close");
+          transitioning = false;
         };
         overlay.addEventListener( "transitionend", onEndTransitionFn );
       }
       else if( !overlay.classList.contains("close") ) {
+        if (transitioning === true) { return; }
+        transitioning = true;
         overlay.classList.add("open");
+
+        var onEndTransitionFn = (ev) => {
+          if( ev.propertyName !== 'opacity' ) { return; }
+          transitioning = false;
+          ev.target.removeEventListener( "transitionend", onEndTransitionFn );
+        };
+
+        overlay.addEventListener( "transitionend", onEndTransitionFn );
       }
     }
 
