@@ -396,6 +396,7 @@ section#intro p.underline {
 @media only screen and (min-width: 350px) and (max-width:900px) { 
     section#intro p {
         font-size: 3.2em;
+        font-weight: 100;
     }
     section#intro p.underline {
         font-size: 4.8em;
