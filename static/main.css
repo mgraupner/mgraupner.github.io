@@ -278,9 +278,10 @@ nav.mobile {
 .overlay ul li a {
     font-weight: 600;
     text-decoration: none;
+    font-size: 3rem;
     display: block;
     color: #fff;
-    -webkit-transition: color 0.2s;
+    /*-webkit-transition: color 0.2s;*/
     transition: color 0.2s;
 }
 
