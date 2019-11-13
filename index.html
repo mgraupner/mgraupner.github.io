@@ -21,13 +21,23 @@
       <h1>Engineering</h1>
       <p>System Engineering . Software Design . Software Development</p>
     </header>
-    <nav class="mobile">
+    <div class="mobile-menu-item">
       <button class="hamburger hamburger--slider" type="button">
         <span class="hamburger-box">
           <span class="hamburger-inner"></span>
         </span>
       </button>
-    </nav>
+    </div>
+    <div class="desktop-menu">
+      <nav>
+        <ul>
+          <li class="link"><a href="./index.html">Home</a></li>
+          <li class="link"><a class="page-ref" href="/about">About</a></li>
+          <!-- <li class="link"><a class="page-ref" href="/work">Work</a></li> -->
+          <!-- <li class="link"><a class="page-ref" href="/contact">Contact</a></li> -->
+        </ul>
+      </nav>
+    </div>
     <div class="overlay overlay-hugeinc">
       <div class="header">
         <h1>Graupner</h1>
@@ -37,8 +47,8 @@
       <!-- <button type="button" class="overlay-close">Close</button> -->
       <nav class="overlay-nav">
         <ul>
-          <li><a href="https://www.graupner.gr">Home</a></li>
-          <!-- <li><a href="#">About</a></li> -->
+          <li><a href="./index.html">Home</a></li>
+          <li><a class="page-ref" href="/about">About</a></li>
           <!-- <li><a href="#">Work</a></li> -->
           <!-- <li><a href="#">Clients</a></li> -->
           <!-- <li><a href="#">Contact</a></li> -->
@@ -66,6 +76,22 @@
             <li><a class="mail" href="mailto:hello@graupner.gr">hello@graupner.gr</a></li>
           </ul>
         </div>
+      </section>
+      <section id="about" class="lead">
+        <h3>About me</h3>
+        <p>I'm a multi-disciplinary software engineer working in many fields ranging from industry 4.0 applications to solutions for transitioning to electric vehicle (EV) transportation and using web/mobile related technologies for creating new experiences. I like gathering experience in multiple different fields, applying it to my current projects.</p>
+<!--         <p>
+        I am a multi-disciplinary engineer interested in many fields ranging from autonomous driving to data science and security for industry 4.0 applications. Priorly, I worked in the assembly of gas and steam turbines as well as axial and radial fluid compressors. Before I specialize in a distinct field of engineering, I like to gather experience in multiple different disciplines - innovation emerges inter-disciplinary.</p> -->
+
+        <p>As a consultant I'm applying my knowledge to the production and connectivity of tomorrow's world. With my current work I aim to create environmentally friendly solutions to shape the future of transportation.
+
+        <p>I am always eager to learn new technologies and never stop challenging the status quo - there is always something that can be improved or innovated upon, and I will try my best to contribute my part in doing so.</p>
+
+        <!-- <p>Find more about me and the work/projects I did in my CV or in the WORK section.</p> -->
+      </section>
+      <section id="work" class="lead">
+        <h3>Work</h3>
+        <p>I am a multi-disciplinary engineer interested in many fields ranging from autonomous driving to data science and security for industry 4.0 applications. Priorly, I worked in the assembly of gas and steam turbines as well as axial and radial fluid compressors. Before I specialize in a distinct field of engineering, I like to gather experience in multiple different disciplines - innovation emerges inter-disciplinary.</p>
       </section>
     </main>
     <aside id="impress" style="display: none;">
@@ -123,6 +149,36 @@
     // Impress as object
     var impress = document.getElementById("impress");
 
+    function registerPageChange() {
+      const pages = document.getElementsByClassName("page-ref");
+
+      // Map of all sections by section id
+      const sections = document.getElementsByTagName("section");
+      const sectionMap = {};
+      Array.from(sections, (section) => {
+        sectionMap[section.id] = section;
+      });
+
+      Array.from(pages, (page) => {
+        page.addEventListener("click", (event) => {
+          event.preventDefault();
+          // Get the name of the page to show
+          var href = event.target.getAttribute("href").substring(1);
+
+          for (var key in sectionMap) {
+            var section = sectionMap[key];
+            if (href !== key) {
+              section.style.display = "none";
+            } else {
+              section.style.display = "block";
+            }
+          }
+
+          toggleHamburger();
+        });
+      })
+    }
+
     function reveal(event) {
       event.preventDefault();
       if (impress.style.display === "none") {
@@ -132,7 +188,7 @@
       }
 
       var y = document.getElementById("contact");
-      y.scrollIntoView( {behavior: "smooth"} );
+      y.scrollIntoView({ behavior: "smooth" });
     }
 
     function registerESCKey() {
@@ -152,21 +208,23 @@
 
 
     // Menu toggle function
-    function toggleHamburger() {
-      // On click
-      hamburger.addEventListener("click", () => {
-        if (transitioning === true) { return; }
-        // Toggle class "is-active"
-        hamburger.classList.toggle("is-active");
-        // Do something else, like open/close menu
-        toggleOverlay();
-      });
-    }
+    function toggleHamburger() {      
+      if (transitioning === true) { return; }
+      // Toggle class "is-active"
+      hamburger.classList.toggle("is-active");
+      // Do something else, like open/close menu
+      toggleOverlay();
+    };
+
+    function registerHamburgerMenuHandler() {
+      hamburger.addEventListener("click", toggleHamburger);
+    };
 
     var triggerBttn = document.getElementById( 'trigger-overlay' );
     var overlay = document.querySelector( 'div.overlay' );
     var closeBttn = overlay.querySelector( 'button.overlay-close' );
 
+    // Prevent opening the overlay multiple times
     var transitioning = false;
 
     function toggleOverlay() {
@@ -196,14 +254,12 @@
 
         overlay.addEventListener( "transitionend", onEndTransitionFn );
       }
-    }
+    };
 
     (function() {
+      registerPageChange();
       registerESCKey();
-      toggleHamburger();
-
-      // triggerBttn.addEventListener( 'click', toggleOverlay );
-      // closeBttn.addEventListener( 'click', toggleOverlay );
+      registerHamburgerMenuHandler();
     })();
   </script>
 </body>

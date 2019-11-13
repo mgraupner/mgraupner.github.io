@@ -78,6 +78,12 @@ body {
     background: #febf3f;
 }
 
+a.link {
+    border-bottom: gray 5px dotted;
+    text-decoration: none;
+    color: #000;
+}
+
 #container {
     margin: 1.5em 0 0 6em;
 }
@@ -110,7 +116,7 @@ header p {
     }
 }
 
-nav.mobile {
+div.mobile-menu-item {
     /*float: left;*/
     /*display: inline-block;*/
     /*padding: 1em 0 0 10em;*/
@@ -208,17 +214,57 @@ nav.mobile {
     transform: translate3d(0, -20px, 0) rotate(-90deg)}
 
 .hamburger:focus { outline: 0; }
-@media only screen and (min-width:767px) {
+
+
+.desktop-menu {
+    display: none;
+    position: fixed;
+    top: 2em;
+    left: calc(25vw * 3);
+    background-color: #000;
+    padding: 0.5em;
+    font-size: 3em;
+    font-weight: 700;
+}
+
+.desktop-menu ul li {
+    color: #F0F0F0;
+    text-transform: uppercase;
+    display: inline-block;
+    border-bottom: gray 5px dotted;
+}
+.desktop-menu ul li:not(:last-child) {
+    margin-right: 0.4em;
+    margin-bottom: 7px;
+}
+.desktop-menu ul li a {
+    text-decoration: none;
+    color: #FFF;
+}
+
+@media only screen and (min-width:1279px) {
+    /* Hide Hambuger on big screen */
     .hamburger {
         display: none;
     }
-}
 
-@media only screen and (min-width:768px) { 
+    /* Hide overlay on big screen */
     .overlay {
         display: none;
     }
+
+    /* Show desktop menu instead */
+    div.desktop-menu {
+        display: block;
+    }
 }
+
+@media only screen and (max-width:1680px) {
+    .desktop-menu ul li {
+        display: block;
+    }
+}
+
 
 /* https://tympanus.net/Development/FullscreenOverlayStyles/index.html */
 /* Overlay style */
@@ -386,6 +432,16 @@ main p {
     padding-bottom: 2rem;
 }
 
+section.lead h3 {
+    font-size: 3em;
+    padding: 0 0 0.2em 0;
+}
+section.lead p {
+    font-size: 2em;
+    line-height: 1.3em;
+    font-weight: 500;
+}
+
 section#intro {
     /*position: relative;*/
     color: #ffffff;
@@ -426,6 +482,10 @@ section#description p {
     line-height: 2.5rem;
     color: #000;
     /*letter-spacing: 0.025em;*/
+}
+
+section#about, section#work {
+    display: none;
 }
 
 section#contact {
