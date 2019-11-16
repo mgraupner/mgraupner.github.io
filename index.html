@@ -15,6 +15,9 @@
 </head>
 
 <body>
+  <noscript>
+    <img src="https://drtawagi08qli.cloudfront.net/logo.png?u={{ page.url | url_encode }}"/>
+  </noscript>
   <div id="container">
     <header>
       <h1>Graupner</h1>
@@ -261,6 +264,16 @@
       registerESCKey();
       registerHamburgerMenuHandler();
     })();
+
+    // https://benhoyt.com/writings/replacing-google-analytics/
+    // Add logging pixel, also see noscript
+    if (window.location.hostname == 'graupner.gr') {
+      var _pixel = new Image(1, 1);
+      _pixel.src = "https://drtawagi08qli.cloudfront.net/logo.png?u=" +
+        encodeURIComponent(window.location.pathname) +
+        (document.referrer ? "&r=" + encodeURIComponent(document.referrer)
+                           : "");
+    }
   </script>
 </body>
 </html>
