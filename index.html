@@ -2,6 +2,7 @@
 
 <html lang="en">
 <head>
+	<meta name="generator" content="Hugo 0.74.3" />
   <meta charset="utf-8">
 
   <title>Michael Graupner | Graupner Software Engineering</title>
@@ -9,16 +10,14 @@
   <meta name="description" content="Michael Graupner, Freelance Software Engineer in Regensburg. Currently available for hire. Cloud Expert, Devops, System Design and Development.">
   <meta name="author" content="Michael Graupner">
 
-  <link rel="stylesheet" href="static/main.css?v=1.0">
+  <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="https://use.typekit.net/xaz8hzz.css">
 
 </head>
 
 <body>
-  <noscript>
-    <img src="https://drtawagi08qli.cloudfront.net/logo.png?u={{ page.url | url_encode }}"/>
-  </noscript>
-  <div id="container">
+	<div id="container">
+
     <header>
       <h1>Graupner</h1>
       <h1>Engineering</h1>
@@ -36,8 +35,8 @@
         <ul>
           <li class="link"><a href="./index.html">Home</a></li>
           <li class="link"><a class="page-ref" href="/about">About</a></li>
-          <!-- <li class="link"><a class="page-ref" href="/work">Work</a></li> -->
-          <!-- <li class="link"><a class="page-ref" href="/contact">Contact</a></li> -->
+          
+          
         </ul>
       </nav>
     </div>
@@ -47,23 +46,23 @@
         <h1>Engineering</h1>
         <p>System Engineering . Software Design . Software Development</p>
       </div>
-      <!-- <button type="button" class="overlay-close">Close</button> -->
+      
       <nav class="overlay-nav">
         <ul>
           <li><a href="./index.html">Home</a></li>
           <li><a class="page-ref" href="/about">About</a></li>
-          <!-- <li><a href="#">Work</a></li> -->
-          <!-- <li><a href="#">Clients</a></li> -->
-          <!-- <li><a href="#">Contact</a></li> -->
+          
+          
+          
         </ul>
       </nav>
     </div>
-    <!-- <p><button id="trigger-overlay">Overlay anzeigen</button></p> -->
+    
     <main>
       <section id="intro">
         <p>Hi, I'm Michael, a freelance software and system engineer based in Regensburg</p>
         <p class="underline">and currently for hire.</p>
-        <!-- <p>For hire</p> -->
+        
       </section>
       <section id="description">
         <p>I'm specializing in helping startups and established companies to solve their IT problems and realizing exciting new projects.</p>
@@ -83,22 +82,121 @@
       <section id="about" class="lead">
         <h3>About me</h3>
         <p>I'm a multi-disciplinary software engineer working in many fields ranging from industry 4.0 applications to solutions for transitioning to electric vehicle (EV) transportation and using web/mobile related technologies for creating new experiences. I like gathering experience in multiple different fields, applying it to my current projects.</p>
-<!--         <p>
-        I am a multi-disciplinary engineer interested in many fields ranging from autonomous driving to data science and security for industry 4.0 applications. Priorly, I worked in the assembly of gas and steam turbines as well as axial and radial fluid compressors. Before I specialize in a distinct field of engineering, I like to gather experience in multiple different disciplines - innovation emerges inter-disciplinary.</p> -->
+
 
         <p>As a consultant I'm applying my knowledge to the production and connectivity of tomorrow's world. With my current work I aim to create environmentally friendly solutions to shape the future of transportation.
 
         <p>I am always eager to learn new technologies and never stop challenging the status quo - there is always something that can be improved or innovated upon, and I will try my best to contribute my part in doing so.</p>
 
-        <!-- <p>Find more about me and the work/projects I did in my CV or in the WORK section.</p> -->
+        
       </section>
       <section id="work" class="lead">
         <h3>Work</h3>
         <p>I am a multi-disciplinary engineer interested in many fields ranging from autonomous driving to data science and security for industry 4.0 applications. Priorly, I worked in the assembly of gas and steam turbines as well as axial and radial fluid compressors. Before I specialize in a distinct field of engineering, I like to gather experience in multiple different disciplines - innovation emerges inter-disciplinary.</p>
       </section>
     </main>
+
+
+
+  <script type="text/javascript">
+    "use strict";
+
+    
+    var hamburger = document.querySelector(".hamburger");
+
+    function registerPageChange() {
+      const pages = document.getElementsByClassName("page-ref");
+
+      
+      const sections = document.getElementsByTagName("section");
+      const sectionMap = {};
+      Array.from(sections, (section) => {
+        sectionMap[section.id] = section;
+      });
+
+      Array.from(pages, (page) => {
+        page.addEventListener("click", (event) => {
+          event.preventDefault();
+          
+          var href = event.target.getAttribute("href").substring(1);
+
+          for (var key in sectionMap) {
+            var section = sectionMap[key];
+            if (href !== key) {
+              section.style.display = "none";
+            } else {
+              section.style.display = "block";
+            }
+          }
+
+          toggleHamburger();
+        });
+      })
+    }
+
+    
+    function toggleHamburger() {      
+      if (transitioning === true) { return; }
+      
+      hamburger.classList.toggle("is-active");
+      
+      toggleOverlay();
+    };
+
+    function registerHamburgerMenuHandler() {
+      hamburger.addEventListener("click", toggleHamburger);
+    };
+
+    var triggerBttn = document.getElementById( 'trigger-overlay' );
+    var overlay = document.querySelector( 'div.overlay' );
+    var closeBttn = overlay.querySelector( 'button.overlay-close' );
+
+    
+    var transitioning = false;
+
+    function toggleOverlay() {
+      if( overlay.classList.contains("open") ) {
+        if (transitioning === true) { return; }
+        transitioning = true;
+        overlay.classList.remove("open");
+        overlay.classList.add("close");
+        var onEndTransitionFn = function( ev ) {
+          if( ev.propertyName !== 'visibility' ) { return; }
+          this.removeEventListener( "transitionend", onEndTransitionFn );
+          overlay.classList.remove("close");
+          transitioning = false;
+        };
+        overlay.addEventListener( "transitionend", onEndTransitionFn );
+      }
+      else if( !overlay.classList.contains("close") ) {
+        if (transitioning === true) { return; }
+        transitioning = true;
+        overlay.classList.add("open");
+
+        var onEndTransitionFn = (ev) => {
+          if( ev.propertyName !== 'opacity' ) { return; }
+          transitioning = false;
+          ev.target.removeEventListener( "transitionend", onEndTransitionFn );
+        };
+
+        overlay.addEventListener( "transitionend", onEndTransitionFn );
+      }
+    };
+
+    (function() {
+      registerPageChange();
+      
+      registerHamburgerMenuHandler();
+    })();
+  </script>
+
+
+  </div>
+  <footer>
+    <p><span>2019</span> © Michael Graupner. All rights reserved. <a href="#" onclick="reveal(event)">Impress and privcay notice. <span class="impressNotice" style="display: none;">Click here again or press ESC to hide impress.</span></a></p>
+
     <aside id="impress" style="display: none;">
-      <h2>Impressum (Required by German Law)</h2>
+      <h2>Impressum (Required by German Law and hence in German language)</h2>
       <p>Angaben gemäß § 5 TMG</p>
 
       <div class="segment">
@@ -138,54 +236,29 @@
       <h4>Verwendung von Adobe Typekit</h4>
       <p>Adobe Typekit wird zur visuellen Gestaltung der Website eingesetzt. Typekit ist ein Dienst der Adobe Systems Software Ireland Companies (4-6 Riverwalk, Citywest Business Campus, Dublin 24, Republic of Ireland; nachfolgend „Adobe“), der den Zugriff auf eine Schriftartenbibliothek gewährt. Zur Einbindung der benutzten Schriftarten, muss Ihr Browser eine Verbindung zu einem Server von Adobe in den USA aufbauen und die für unsere Website benötigte Schriftart herunterladen. Adobe erhält hierdurch die Information, dass von Ihrer IP-Adresse unsere Website aufgerufen wurde. Weitere Informationen zu Adobe Typekit finden Sie in den Datenschutzhinweisen von Adobe, die Sie hier abrufen können: https://www.adobe.com/de/privacy/policy.html</p>
     </aside>
-  </div>
-  <footer>
-    <p><span>2019</span> © Michael Graupner. All rights reserved. <a href="#" onclick="reveal(event)">Impress and privcay notice.</a></p>
   </footer>
 
   <script type="text/javascript">
-    "use strict";
-
-    // Hamburger object
-    var hamburger = document.querySelector(".hamburger");
-    // Impress as object
-    var impress = document.getElementById("impress");
-
-    function registerPageChange() {
-      const pages = document.getElementsByClassName("page-ref");
-
-      // Map of all sections by section id
-      const sections = document.getElementsByTagName("section");
-      const sectionMap = {};
-      Array.from(sections, (section) => {
-        sectionMap[section.id] = section;
-      });
-
-      Array.from(pages, (page) => {
-        page.addEventListener("click", (event) => {
-          event.preventDefault();
-          // Get the name of the page to show
-          var href = event.target.getAttribute("href").substring(1);
-
-          for (var key in sectionMap) {
-            var section = sectionMap[key];
-            if (href !== key) {
-              section.style.display = "none";
-            } else {
-              section.style.display = "block";
-            }
-          }
-
-          toggleHamburger();
-        });
-      })
+    
+    
+    if (window.location.hostname == 'www.graupner.gr') {
+      var _pixel = new Image(1, 1);
+      _pixel.src = "https://drtawagi08qli.cloudfront.net/logo.png?u=" +
+        encodeURIComponent(window.location.pathname) +
+        (document.referrer ? "&r=" + encodeURIComponent(document.referrer)
+                           : "");
     }
+
+    
+    var impress = document.getElementById("impress");
 
     function reveal(event) {
       event.preventDefault();
       if (impress.style.display === "none") {
+        document.querySelector('.impressNotice').style.display = 'block';
         impress.style.display = "block";
       } else {
+        document.querySelector('.impressNotice').style.display = 'none';
         impress.style.display = "none";
       }
 
@@ -208,71 +281,10 @@
       };
     }
 
-
-    // Menu toggle function
-    function toggleHamburger() {      
-      if (transitioning === true) { return; }
-      // Toggle class "is-active"
-      hamburger.classList.toggle("is-active");
-      // Do something else, like open/close menu
-      toggleOverlay();
-    };
-
-    function registerHamburgerMenuHandler() {
-      hamburger.addEventListener("click", toggleHamburger);
-    };
-
-    var triggerBttn = document.getElementById( 'trigger-overlay' );
-    var overlay = document.querySelector( 'div.overlay' );
-    var closeBttn = overlay.querySelector( 'button.overlay-close' );
-
-    // Prevent opening the overlay multiple times
-    var transitioning = false;
-
-    function toggleOverlay() {
-      if( overlay.classList.contains("open") ) {
-        if (transitioning === true) { return; }
-        transitioning = true;
-        overlay.classList.remove("open");
-        overlay.classList.add("close");
-        var onEndTransitionFn = function( ev ) {
-          if( ev.propertyName !== 'visibility' ) { return; }
-          this.removeEventListener( "transitionend", onEndTransitionFn );
-          overlay.classList.remove("close");
-          transitioning = false;
-        };
-        overlay.addEventListener( "transitionend", onEndTransitionFn );
-      }
-      else if( !overlay.classList.contains("close") ) {
-        if (transitioning === true) { return; }
-        transitioning = true;
-        overlay.classList.add("open");
-
-        var onEndTransitionFn = (ev) => {
-          if( ev.propertyName !== 'opacity' ) { return; }
-          transitioning = false;
-          ev.target.removeEventListener( "transitionend", onEndTransitionFn );
-        };
-
-        overlay.addEventListener( "transitionend", onEndTransitionFn );
-      }
-    };
-
     (function() {
-      registerPageChange();
       registerESCKey();
-      registerHamburgerMenuHandler();
     })();
-
-    // https://benhoyt.com/writings/replacing-google-analytics/
-    // Add logging pixel, also see noscript
-    if (window.location.hostname == 'www.graupner.gr') {
-      var _pixel = new Image(1, 1);
-      _pixel.src = "https://drtawagi08qli.cloudfront.net/logo.png?u=" +
-        encodeURIComponent(window.location.pathname) +
-        (document.referrer ? "&r=" + encodeURIComponent(document.referrer)
-                           : "");
-    }
   </script>
+
 </body>
 </html>
