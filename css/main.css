@@ -98,6 +98,7 @@ header {
     /*max-width: 800px;*/
     padding-top: 1em;
     display: inline-block;
+    margin-bottom: 3em;
     /*float: left;*/
 }
 
@@ -423,7 +424,7 @@ h1 {
 }
 
 main {
-    padding-top: 3em;
+    /* padding-top: 3em; */
     max-width: 900px;
 /*    padding-bottom: 2rem;
     margin-bottom: 1rem;*/
@@ -440,11 +441,11 @@ main p {
 
 section.lead h3 {
     font-size: 3em;
-    padding: 0 0 0.2em 0;
+    padding: 0 0 0.4em 0;
 }
 section.lead p {
-    font-size: 2em;
-    line-height: 1.3em;
+    font-size: 1.5em;
+    line-height: 1.5em;
     font-weight: 500;
 }
 
