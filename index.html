@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Michael is an independent systems engineer who develops business software solutions">
+    <title>Michael Graupner - System Engineer</title>
+    <link rel="stylesheet" href="static/css/main.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="/">Michael Graupner</a></h1>
+        <h2>System Engineer</h2>
+        <menu>
+            <li><a href="about.html">About</a></li>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </menu>
+      </header>
+      <main></main>
+      <footer>
+          <details>
+              <summary>Impress &lambda;</summary>
+              Angaben gemäß § 5 TMG
+              
+              Michael Graupner
+              Welfenweg 4
+              93051 Regensburg
+              Kontakt:
+              Tel.: +49 941/534551166234
+              E-Mail: hello@graupner.gr
+              UST-Id-Nr.: DE 298993163
+          </details>
+          <!-- +49 941 381 626 33 -->
+          <p>&copy; Michael Graupner 2024 &mdash; <span id="language"></span></p>
+      </footer>
+    </div>
+    <script>
+        // Set default language
+        let lang = 'en'
+        let langSelector = document.getElementById("language")
+        try {
+            lang = navigator.language.slice(0,2)
+            if (lang != 'de' || lang != 'en') {
+              lang = 'en'
+            }
+        } catch (error) {
+        }
+        langSelector.textContent=lang
+
+        langSelector.addEventListener('click', () => {
+          console.log('Language changed')
+        });
+    </script>
+  </body>
+</html>
