@@ -127,6 +127,7 @@ main p {
     line-height: 1.5em;
     margin-bottom: 0.3em;
     max-width: 650px;
+    word-break: keep-all;
 }
 main p a {
     text-decoration: none;
